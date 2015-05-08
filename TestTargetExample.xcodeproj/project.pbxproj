@@ -13,6 +13,7 @@
 		53042DB1197E99393BBF21C6 /* ResolveTestServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53042430F6DC9F55CC13200A /* ResolveTestServerViewController.m */; };
 		5BD550C1AFDE41F564C3D2D7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B33EFC54230814A870389D /* libPods.a */; };
 		710657FA3029B1832A0932FF /* libPods-Test Target.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F33714645B3BDBF76B199E6B /* libPods-Test Target.a */; };
+		79B552FF1AFD54BA00CA981F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B552FE1AFD54BA00CA981F /* CoreLocation.framework */; };
 		79C181A61AFCABB5009507EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C181A51AFCABB5009507EA /* main.m */; };
 		79C181A91AFCABB5009507EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C181A81AFCABB5009507EA /* AppDelegate.m */; };
 		79C181AC1AFCABB5009507EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C181AB1AFCABB5009507EA /* ViewController.m */; };
@@ -26,6 +27,7 @@
 		79C181D01AFCABCD009507EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C181AD1AFCABB5009507EA /* Main.storyboard */; };
 		79C181D11AFCABCD009507EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C181B21AFCABB5009507EA /* LaunchScreen.xib */; };
 		79C181D21AFCABCD009507EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C181B01AFCABB5009507EA /* Images.xcassets */; };
+		A10CB9DD8F34B7FEA09EF008 /* libPods-Production Target.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B78551C7DA53D15001C11A /* libPods-Production Target.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,9 @@
 		53042CAB04CEBD0EE388609E /* AppDelegate+TestTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+TestTarget.h"; sourceTree = "<group>"; };
 		53042F4B629772C66B135DD6 /* ResolveTestServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResolveTestServerViewController.h; sourceTree = "<group>"; };
 		5D9E027730346CCBF204DFB9 /* Pods-Test Target.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test Target.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test Target/Pods-Test Target.debug.xcconfig"; sourceTree = "<group>"; };
+		65D0B9F110D4512511BD87E7 /* Pods-Production Target.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Production Target.release.xcconfig"; path = "Pods/Target Support Files/Pods-Production Target/Pods-Production Target.release.xcconfig"; sourceTree = "<group>"; };
 		6BA496F197971240F99CE54C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		79B552FE1AFD54BA00CA981F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		79C181A01AFCABB5009507EA /* Production Target.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Production Target.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C181A41AFCABB5009507EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C181A51AFCABB5009507EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		79C181BE1AFCABB6009507EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C181BF1AFCABB6009507EA /* TestTargetExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTargetExampleTests.m; sourceTree = "<group>"; };
 		79C181D61AFCABCD009507EA /* Production Target copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Production Target copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEF2932AFBA7A43CFA247F7B /* Pods-Production Target.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Production Target.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Production Target/Pods-Production Target.debug.xcconfig"; sourceTree = "<group>"; };
+		B5B78551C7DA53D15001C11A /* libPods-Production Target.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Production Target.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2245915C66A6D74777C852 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F33714645B3BDBF76B199E6B /* libPods-Test Target.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test Target.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69E9D345FB64E880D314A4A /* Pods-Test Target.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test Target.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test Target/Pods-Test Target.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79B552FF1AFD54BA00CA981F /* CoreLocation.framework in Frameworks */,
 				5BD550C1AFDE41F564C3D2D7 /* libPods.a in Frameworks */,
+				A10CB9DD8F34B7FEA09EF008 /* libPods-Production Target.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +111,8 @@
 				6BA496F197971240F99CE54C /* Pods.release.xcconfig */,
 				5D9E027730346CCBF204DFB9 /* Pods-Test Target.debug.xcconfig */,
 				F69E9D345FB64E880D314A4A /* Pods-Test Target.release.xcconfig */,
+				AEF2932AFBA7A43CFA247F7B /* Pods-Production Target.debug.xcconfig */,
+				65D0B9F110D4512511BD87E7 /* Pods-Production Target.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -188,8 +198,10 @@
 		DAA323B66AEF949DF92BDDB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79B552FE1AFD54BA00CA981F /* CoreLocation.framework */,
 				15B33EFC54230814A870389D /* libPods.a */,
 				F33714645B3BDBF76B199E6B /* libPods-Test Target.a */,
+				B5B78551C7DA53D15001C11A /* libPods-Production Target.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -537,6 +549,7 @@
 				INFOPLIST_FILE = TestTargetExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -548,6 +561,7 @@
 				INFOPLIST_FILE = TestTargetExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

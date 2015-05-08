@@ -4,7 +4,6 @@
 //
 
 #import "ResolveTestServerViewController.h"
-#import "FakeWebSocket.h"
 
 @interface ResolveTestServerViewController ()
 

@@ -4,7 +4,6 @@
 //
 
 #import "TestAutoResolver.h"
-#import "FakeWebSocket.h"
 
 
 @implementation TestAutoResolver {
@@ -21,14 +20,11 @@
   self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
   [self.netServiceBrowser setDelegate:self];
   [self.netServiceBrowser searchForServicesOfType:@"_TestIOSServer._tcp." inDomain:@""];
-  self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+  self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:8 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
 }
 
 - (void)timeout {
   [self.netServiceBrowser stop];
-}
-
-- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser{
   self.failure();
 }
 
@@ -48,12 +44,10 @@
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender {
+  [self.timeoutTimer invalidate];
+  [self.netServiceBrowser stop];
+
   self.callback(sender);
-}
-
-- (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
-{
-
 }
 
 - (void)dealloc{

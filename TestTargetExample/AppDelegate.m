@@ -17,6 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSLog(@"Normal App delegate");
+  self.manager = [[CLLocationManager alloc] init];
+  self.manager.delegate = self;
+  NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@""];
+  CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.miquido.Protuction-Target"];
+  [self.manager requestAlwaysAuthorization];
+  [self.manager startMonitoringForRegion:beaconRegion];
+  [self.manager startRangingBeaconsInRegion:beaconRegion];
   return YES;
 }
 
@@ -40,6 +47,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
+  NSLog(@"beacons = %@", beacons);
 }
 
 @end
