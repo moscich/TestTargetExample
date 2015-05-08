@@ -21,6 +21,15 @@
   self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
   [self.netServiceBrowser setDelegate:self];
   [self.netServiceBrowser searchForServicesOfType:@"_TestIOSServer._tcp." inDomain:@""];
+  self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+}
+
+- (void)timeout {
+  [self.netServiceBrowser stop];
+}
+
+- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser{
+  self.failure();
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
@@ -30,7 +39,7 @@
           [self.service.type isEqualToString:self.testServiceType] &&
           [self.service.domain isEqualToString:self.testServiceDomain]) {
     [self.service setDelegate:self];
-    [self.service resolveWithTimeout:10];
+    [self.service resolveWithTimeout:1];
     return;
   }
   if(!moreComing){

@@ -17,5 +17,7 @@
 
 @property(nonatomic, strong) NSNetService *service;
 
+@property(nonatomic, strong) NSTimer *timeoutTimer;
+
 - (void)discoverServiceWithCallback:(void (^)(NSNetService *))success failure:(void (^)())failure;
 @end
