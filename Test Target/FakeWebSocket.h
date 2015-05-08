@@ -12,7 +12,7 @@
 
 @end
 
-@interface FakeWebSocket : NSObject <SRWebSocketDelegate, NSNetServiceBrowserDelegate>
+@interface FakeWebSocket : NSObject <SRWebSocketDelegate, NSNetServiceBrowserDelegate, NSStreamDelegate, NSStreamDelegate>
 
 @property (nonatomic, weak) id <FakeWebSocketDelegate> delegate;
 

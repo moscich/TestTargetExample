@@ -34,7 +34,7 @@
 
     self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
     [self.netServiceBrowser setDelegate:self];
-    [self.netServiceBrowser searchForServicesOfType:@"_http._tcp." inDomain:@""];
+    [self.netServiceBrowser searchForServicesOfType:@"_TestIOSServer._tcp." inDomain:@""];
     
     NSString *urlString = @"ws://192.168.1.156:8001";
     self.webSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
@@ -47,10 +47,33 @@
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
   NSLog(@"aNetService = %@", aNetService.name);
+
+  NSInputStream  * inStream;
+  NSOutputStream * outStream;
+  [aNetService getInputStream:&inStream
+             outputStream:&outStream]; // See Technical Q&A QA1546
+  inStream.delegate = self;
+  outStream.delegate = self;
+  [inStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
+                      forMode:NSDefaultRunLoopMode];
+  [outStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
+                       forMode:NSDefaultRunLoopMode];
+  [inStream open];
+  [outStream open];
+
+  NSData *data = [@"Test stream" dataUsingEncoding:NSUTF8StringEncoding];
+  uint32_t length = (uint32_t)htonl([data length]);
+  [outStream write:[data bytes] maxLength:length];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
   [self.delegate locateFakeBeacon];
 }
+
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode{
+
+  NSLog(@"aStream = %@", aStream);
+}
+
 
 @end
