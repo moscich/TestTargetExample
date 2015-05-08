@@ -36,6 +36,15 @@
   [self.netServiceBrowser searchForServicesOfType:@"_TestIOSServer._tcp." inDomain:@""];
 }
 
+- (id)initWithSuccess:(void (^)(NSNetService *))success {
+  self = [super init];
+  if (self) {
+    self.success = success;
+  }
+
+  return self;
+}
+
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
   [self addToDiscoveredIfNotExistAlready:aNetService];
   if (!moreComing) {
@@ -75,7 +84,13 @@
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender {
-  [[FakeWebSocket fakeManager] launchWebSocketsForService:sender];
+  [[NSUserDefaults standardUserDefaults] setObject:sender.name forKey:@"TestServiceName"];
+  [[NSUserDefaults standardUserDefaults] setObject:sender.type forKey:@"TestServiceType"];
+  [[NSUserDefaults standardUserDefaults] setObject:sender.domain forKey:@"TestServiceDomain"];
+
+  [[NSUserDefaults standardUserDefaults] synchronize];
+
+  self.success(sender);
 }
 
 @end

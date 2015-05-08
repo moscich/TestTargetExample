@@ -9,4 +9,8 @@
 @interface ResolveTestServerViewController : UIViewController <UITableViewDataSource, NSNetServiceBrowserDelegate, UITableViewDelegate, NSNetServiceDelegate>
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSNetServiceBrowser *netServiceBrowser;
+
+@property(nonatomic, copy) void (^success)(NSNetService *);
+
+- (id)initWithSuccess:(void (^)(NSNetService *))pFunction;
 @end

@@ -25,10 +25,8 @@
   BOOL result = [self application:application didFinishLaunchingWithOptions:launchOptions];
   NSLog(@"Fake");
 
-  [FakeWebSocket fakeManager].fakeWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  [FakeWebSocket fakeManager].fakeWindow.rootViewController = [ResolveTestServerViewController new];
-  [FakeWebSocket fakeManager].fakeWindow.windowLevel = UIWindowLevelAlert;
-  [[FakeWebSocket fakeManager].fakeWindow makeKeyAndVisible];
+  [[FakeWebSocket fakeManager] start];
+
   return result;
 }
 

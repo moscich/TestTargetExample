@@ -8,6 +8,8 @@
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 
+@class TestAutoResolver;
+
 @protocol FakeWebSocketDelegate
 
 - (void)locateFakeBeacon;
@@ -25,7 +27,12 @@
 @property(nonatomic, strong) UIWindow *fakeWindow;
 @property(nonatomic, strong) SRWebSocket *webSocket;
 
+@property(nonatomic, strong) TestAutoResolver *testAutoResolver;
+
 + (instancetype)fakeManager;
+
+- (void)start;
+
 - (void)launchWebSocketsForService:(NSNetService *)service;
 
 @end

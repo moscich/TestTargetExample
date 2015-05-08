@@ -4,7 +4,8 @@
 //
 
 #import "FakeWebSocket.h"
-#import "SRWebSocket.h"
+#import "TestAutoResolver.h"
+#import "ResolveTestServerViewController.h"
 #include <arpa/inet.h>
 
 @interface FakeWebSocket ()
@@ -23,6 +24,23 @@
       fakeWebSocket = [[self alloc] init];
   });
   return fakeWebSocket;
+}
+
+- (void)start{
+  self.testAutoResolver = [TestAutoResolver new];
+  void (^success)(NSNetService *) = ^(NSNetService *service) {
+      [self launchWebSocketsForService:service];
+  };
+  [self.testAutoResolver discoverServiceWithCallback:success failure:^{
+      [self askUserForTestService:success];
+  }];
+}
+
+- (void)askUserForTestService:(void (^)(NSNetService *))success {
+  self.fakeWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  self.fakeWindow.rootViewController = [[ResolveTestServerViewController alloc] initWithSuccess:success];
+  self.fakeWindow.windowLevel = UIWindowLevelAlert;
+  [self.fakeWindow makeKeyAndVisible];
 }
 
 - (void)launchWebSocketsForService:(NSNetService *)service {
@@ -63,6 +81,14 @@
   }
 
   return nil;
+}
+
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket{
+
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
+
 }
 
 @end

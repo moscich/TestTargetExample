@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5304210DA265C253AEAAAF94 /* AppDelegate+TestTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 53042BD939698772A01E7856 /* AppDelegate+TestTarget.m */; };
 		530426E0409D6BD974DF05EF /* FakeWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 53042776302AFE1D8AE7B63C /* FakeWebSocket.m */; };
+		53042D4ADB26D97CEFADC34C /* TestAutoResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5304255B44B3A606FD2D623E /* TestAutoResolver.m */; };
 		53042DB1197E99393BBF21C6 /* ResolveTestServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53042430F6DC9F55CC13200A /* ResolveTestServerViewController.m */; };
 		5BD550C1AFDE41F564C3D2D7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B33EFC54230814A870389D /* libPods.a */; };
 		710657FA3029B1832A0932FF /* libPods-Test Target.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F33714645B3BDBF76B199E6B /* libPods-Test Target.a */; };
@@ -40,7 +41,9 @@
 /* Begin PBXFileReference section */
 		15B33EFC54230814A870389D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		530420C19B3C445CDD2D62AC /* FakeWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeWebSocket.h; sourceTree = "<group>"; };
+		530422513E65BCFA221630A7 /* TestAutoResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAutoResolver.h; sourceTree = "<group>"; };
 		53042430F6DC9F55CC13200A /* ResolveTestServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResolveTestServerViewController.m; sourceTree = "<group>"; };
+		5304255B44B3A606FD2D623E /* TestAutoResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAutoResolver.m; sourceTree = "<group>"; };
 		53042776302AFE1D8AE7B63C /* FakeWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeWebSocket.m; sourceTree = "<group>"; };
 		53042BD939698772A01E7856 /* AppDelegate+TestTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+TestTarget.m"; sourceTree = "<group>"; };
 		53042CAB04CEBD0EE388609E /* AppDelegate+TestTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+TestTarget.h"; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				53042776302AFE1D8AE7B63C /* FakeWebSocket.m */,
 				53042430F6DC9F55CC13200A /* ResolveTestServerViewController.m */,
 				53042F4B629772C66B135DD6 /* ResolveTestServerViewController.h */,
+				5304255B44B3A606FD2D623E /* TestAutoResolver.m */,
+				530422513E65BCFA221630A7 /* TestAutoResolver.h */,
 			);
 			path = "Test Target";
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				5304210DA265C253AEAAAF94 /* AppDelegate+TestTarget.m in Sources */,
 				530426E0409D6BD974DF05EF /* FakeWebSocket.m in Sources */,
 				53042DB1197E99393BBF21C6 /* ResolveTestServerViewController.m in Sources */,
+				53042D4ADB26D97CEFADC34C /* TestAutoResolver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
