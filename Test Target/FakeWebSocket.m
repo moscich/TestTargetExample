@@ -37,14 +37,14 @@
 }
 
 - (void)askUserForTestService:(void (^)(NSNetService *))success {
-  self.fakeWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  self.fakeWindow.rootViewController = [[ResolveTestServerViewController alloc] initWithSuccess:success];
-  self.fakeWindow.windowLevel = UIWindowLevelAlert;
-  [self.fakeWindow makeKeyAndVisible];
+  UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+  self.controller = [[ResolveTestServerViewController alloc] initWithSuccess:success];
+  self.controller.view.frame = window.bounds;
+  [window addSubview:self.controller.view];
 }
 
 - (void)launchWebSocketsForService:(NSNetService *)service {
-  self.fakeWindow = nil;
+  [self.controller.view removeFromSuperview];
   NSString *address = [self getStringFromService:service];
 
   NSString *urlString = [NSString stringWithFormat:@"ws://%@:%d", address, service.port];

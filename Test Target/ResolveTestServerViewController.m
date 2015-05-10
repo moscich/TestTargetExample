@@ -51,18 +51,31 @@
   }
 }
 
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
+  int index = [self indexOfService:aNetService];
+  if(index != NSNotFound)
+    [self.discoveredServices removeObject:aNetService];
+  if (!moreComing) {
+    [self.tableView reloadData];
+  }
+}
+
 - (void)addToDiscoveredIfNotExistAlready:(NSNetService *)newService {
-  BOOL exists = NO;
-  for (NSNetService *service in self.discoveredServices) {
+  if (![self indexOfService:newService] != NSNotFound) {
+    [self.discoveredServices addObject:newService];
+  }
+}
+
+- (int)indexOfService:(NSNetService *)newService {
+  for (int i = 0; i < self.discoveredServices.count; i++) {
+    NSNetService *service = self.discoveredServices[(NSUInteger) i];
     if ([service.name isEqualToString:newService.name] &&
             [service.type isEqualToString:newService.type] &&
             [service.domain isEqualToString:newService.domain]) {
-      exists = YES;
+      return i;
     }
   }
-  if (!exists) {
-    [self.discoveredServices addObject:newService];
-  }
+  return NSNotFound;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -88,6 +101,8 @@
   [[NSUserDefaults standardUserDefaults] setObject:sender.domain forKey:@"TestServiceDomain"];
 
   [[NSUserDefaults standardUserDefaults] synchronize];
+
+  [self.netServiceBrowser stop];
 
   self.success(sender);
 }

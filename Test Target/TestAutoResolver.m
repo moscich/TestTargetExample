@@ -20,7 +20,7 @@
   self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
   [self.netServiceBrowser setDelegate:self];
   [self.netServiceBrowser searchForServicesOfType:@"_TestIOSServer._tcp." inDomain:@""];
-  self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:8 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+  self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
 }
 
 - (void)timeout {

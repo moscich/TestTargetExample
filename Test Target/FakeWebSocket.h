@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class TestAutoResolver;
+@class ResolveTestServerViewController;
 
 @protocol FakeWebSocketDelegate
 
@@ -28,6 +29,8 @@
 @property(nonatomic, strong) SRWebSocket *webSocket;
 
 @property(nonatomic, strong) TestAutoResolver *testAutoResolver;
+
+@property(nonatomic, strong) ResolveTestServerViewController *controller;
 
 + (instancetype)fakeManager;
 
